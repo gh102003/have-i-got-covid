@@ -1,0 +1,40 @@
+@import "./variables.scss";
+
+.results {
+  text-align: center;
+  width: 100%;
+
+
+  .results-result {
+    margin-bottom: 2em;
+
+
+    p {
+      margin: 0.3em 0;
+    }
+    
+    .result-number {
+      letter-spacing: -0.01em;
+      font-weight: 800;
+      font-size: 4em;
+      margin: 0;
+      color: $theme-colour-1;
+      line-height: 1;
+      
+      &.result-number-small {
+        letter-spacing: -0.02em;
+        font-size: 1.8em;
+        margin: 0.2em 0 0.4em 0;
+        font-weight: 600;
+      }
+    }
+  }
+  
+  h3 {
+    margin: 2em 0 0.5em 0;
+  }
+  
+  p {
+    margin: 0 0 0.8em 0;
+  }
+}

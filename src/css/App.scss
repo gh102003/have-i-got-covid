@@ -1,0 +1,16 @@
+@import "./variables.scss";
+
+.App {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+header {
+  background-color: $theme-colour-1;
+  color: white;
+  padding: 0.8em 1.2em;
+
+  h1 {
+    margin: 0;
+  }
+}
