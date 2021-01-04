@@ -12,21 +12,6 @@ export const RegionInput = ({ region, setRegion }) => {
 
       <div className="radio-buttons">
 
-        <input type="radio" name="region" value="Scotland" id="region-scotland"
-          checked={region === "Scotland"} onChange={() => setRegion("Scotland")}
-        />
-        <label htmlFor="region-scotland">Scotland</label>
-
-        <input type="radio" name="region" value="Northern Ireland" id="region-northern-ireland"
-          checked={region === "Northern Ireland"} onChange={() => setRegion("Northern Ireland")}
-        />
-        <label htmlFor="region-northern-ireland">Northern Ireland</label>
-
-        <input type="radio" name="region" value="Wales" id="region-wales"
-          checked={region === "Wales"} onChange={() => setRegion("Wales")}
-        />
-        <label htmlFor="region-wales">Wales</label>
-        
         <h4>England</h4>
 
         <input type="radio" name="region" value="South East" id="region-south-east"
@@ -73,6 +58,23 @@ export const RegionInput = ({ region, setRegion }) => {
           checked={region === "South West"} onChange={() => setRegion("South West")}
         />
         <label htmlFor="region-south-west">South West</label>
+
+        <h4>Other nations</h4>
+        <input type="radio" name="region" value="Scotland" id="region-scotland"
+          checked={region === "Scotland"} onChange={() => setRegion("Scotland")}
+        />
+        <label htmlFor="region-scotland">Scotland</label>
+
+        <input type="radio" name="region" value="Northern Ireland" id="region-northern-ireland"
+          checked={region === "Northern Ireland"} onChange={() => setRegion("Northern Ireland")}
+        />
+        <label htmlFor="region-northern-ireland">Northern Ireland</label>
+
+        <input type="radio" name="region" value="Wales" id="region-wales"
+          checked={region === "Wales"} onChange={() => setRegion("Wales")}
+        />
+        <label htmlFor="region-wales">Wales</label>
+
 
       </div>
       <button disabled={!region} onClick={() => setRegion(null)}>Clear</button>
