@@ -48,37 +48,39 @@ export const Results = ({ data, useEthnicity, useEmployment }) => {
         which is <b>1 in {(1 / nationPrevalence.prevalance).toFixed(1 / nationPrevalence.prevalance < 10 ? 1 : 0)}</b> ({(nationPrevalence.prevalance * 100).toFixed(2)}%).
       </p>
 
-      <h3>Is this completely correct?</h3>
-      <p>
-        No, this is only a rough estimate based on the available data. It has the potential to
-        be wildly inaccurate due to fluctuations in the spread of the virus and misguided
-        statistical assumptions.
-      </p>
-      <p>
-        <em>Have I Got Corona?</em> should only be used for your own interest. You must self-isolate if
-        you receive a positive test or are asked to by NHS Track and Trace. Go
-        to <a href="https://gov.uk/coronavirus">the Government's website</a> for the latest advice.
-      </p>
+      <div className="results-details">
+        <h3>Is this completely correct?</h3>
+        <p>
+          No, this is only a rough estimate based on the available data. It has the potential to
+          be wildly inaccurate due to fluctuations in the spread of the virus and misguided
+          statistical assumptions.
+        </p>
+        <p>
+          <em>Have I Got Corona?</em> should only be used for your own interest. You must self-isolate if
+          you receive a positive test or are asked to by NHS Track and Trace. Go
+          to <a href="https://gov.uk/coronavirus">the Government's website</a> for the latest advice.
+        </p>
 
-      <h3>How did we work this out?</h3>
-      <p>
-        We used data from the <a href="https://www.imperial.ac.uk/medicine/research-and-impact/groups/react-study/">REACT-1 study</a> at
-        Imperial College London to calculate the chance you would test positive for Covid-19
-        based on the information you gave us.
-      </p>
-      <p>
-        This is based on the fact that there is a higher prevalence of Covid-19 amongst certain
-        groups of people&mdash;particularly teenagers, those with an Asian background, healthcare workers and
-        people who live in larger households&mdash;and by being in one of these groups you are statistically
-        more likely to have a positive result in a PCR test. To prevent counting the same risk factors twice,
-        if you have a close contact with Covid-19, we use the higher risk from either your demographics or your
-        close contact.
-      </p>
-      <p>
-        If you live in Scotland, Wales, or Northern Ireland, we scale your result based on the prevelance in your
-        nation compared with the prevelance in England. However, this may be less accurate as we only have information
-        on risk factors for England.
-      </p>
+        <h3>How did we work this out?</h3>
+        <p>
+          We used data from the <a href="https://www.imperial.ac.uk/medicine/research-and-impact/groups/react-study/">REACT-1 study</a> at
+          Imperial College London to calculate the chance you would test positive for Covid-19
+          based on the information you gave us.
+        </p>
+        <p>
+          This is based on the fact that there is a higher prevalence of Covid-19 amongst certain
+          groups of people&mdash;particularly teenagers, those with an Asian background, healthcare workers and
+          people who live in larger households&mdash;and by being in one of these groups you are statistically
+          more likely to have a positive result in a PCR test. To prevent counting the same risk factors twice,
+          if you have a close contact with Covid-19, we use the higher risk from either your demographics or your
+          close contact.
+        </p>
+        <p>
+          If you live in Scotland, Wales, or Northern Ireland, we scale your result based on the prevelance in your
+          nation compared with the prevelance in England. However, this may be less accurate as we only have information
+          on risk factors for England.
+        </p>
+      </div>
       <LinkGrid />
     </div>
   )

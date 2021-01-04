@@ -140,7 +140,8 @@ const calculateRoute1Chance = variables => {
   const prevalences = variables
     .filter(([variable, value]) => variable !== "closeContact")
     .map(([variable, value]) => getPrevalenceGivenVariable(variable, value));
-  console.log(prevalences);
+
+  console.log("route 1 prevalences:", prevalences);
 
   const multipliedPrevalences = prevalences.reduce((prev, curr) => prev * curr, 1);
 
