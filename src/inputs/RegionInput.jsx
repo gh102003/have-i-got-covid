@@ -6,6 +6,11 @@ export const RegionInput = ({ region, setRegion }) => {
     <div className="input input-region">
       <h3>Where do you live?</h3>
 
+      <p>
+        These are the offical regions in England. Unfortunately we don't have enough data to give
+        accurate estimates for Scotland, Wales or Northern Ireland.
+      </p>
+
       <div className="radio-buttons">
 
         <input type="radio" name="region" value="South East" id="region-south-east"

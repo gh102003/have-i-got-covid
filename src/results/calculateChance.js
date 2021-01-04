@@ -154,6 +154,12 @@ export const filterData = (data, useEthnicity, useEmployment) => {
     if (variable === "employment" && !useEmployment) {
       return false;
     }
+    if (variable === "age" && value < 5) {
+      return false;
+    }
+    if (variable === "householdSize" && value < 1) {
+      return false;
+    }
     return true;
   });
 };

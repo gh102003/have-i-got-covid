@@ -29,6 +29,7 @@
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
+    margin: 0.5em 0;
 
     button {
       margin-left: 2em;
@@ -43,16 +44,28 @@
     margin-bottom: 0;
   }
 
+  input[type="number"] {
+    border: 2px solid $theme-colour-2;
+    padding: 0.3em 0.5em;
+    appearance: none;
+    border-radius: 0.4em;
+    font-size: inherit;
+    font-family: inherit;
+
+    &:invalid {
+      border-color: red;
+      border-width: 3px;
+    }
+  }
+
   p {
     color: #444;
+    margin: 0.8em 0;
   }
 
   .age-input,
   .household-size-input {
-    width: 5ch;
-    font-size: 1em;
-    font-family: inherit;
-    border: 1px solid #555;
+    width: 6ch;
   }
 }
 
@@ -96,6 +109,7 @@
 
   label {
     margin-right: 1em;
+    line-height: 1.1;
   }
 }
 

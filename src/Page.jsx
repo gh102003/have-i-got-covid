@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useMemo } from 'react';
 import { GenderInput } from './inputs/GenderInput.jsx';
 import { AgeInput } from './inputs/AgeInput.jsx';
 import { RegionInput } from './inputs/RegionInput.jsx';
@@ -8,15 +8,16 @@ import { HouseholdSizeInput } from './inputs/HouseholdSizeInput.jsx';
 import { EmploymentInput } from './inputs/EmploymentInput.jsx';
 import { CloseContactInput } from './inputs/CloseContactInput.jsx';
 import { Results } from './results/Results.jsx';
+import { LinkGrid } from './LinkGrid.jsx';
 
 export const Page = ({ item, props, data, setData }) => {
 
-  const recordEmployment = useCallback(
+  const recordEmployment = useMemo(
     () => !data.age || (data.age >= 18 && data.age < 65),
     [data]
   );
 
-  const recordEthnicity = useCallback(
+  const recordEthnicity = useMemo(
     () => !data.householdSize,
     [data]
   );
@@ -32,9 +33,7 @@ export const Page = ({ item, props, data, setData }) => {
         All the information you enter will be kept on your device, although we use analytics to
         measure how many people are using this site.
       </p>
-      <p>
-        Contact me by email at <a href="mailto:gh102003g+haveigotcorona@gmail.com">gh102003g+haveigotcorona@gmail.com</a>
-      </p>
+      <LinkGrid />
     </animated.div>;
   } else if (item === 1) {
     return <animated.div style={props} className="data-entry-page">
@@ -45,13 +44,13 @@ export const Page = ({ item, props, data, setData }) => {
     </animated.div>
   } else if (item === 2) {
     return <animated.div style={props} className="data-entry-page">
-      {recordEmployment() && <EmploymentInput employment={data.employment} setEmployment={employment => setData({ ...data, employment })} />}
-      {recordEthnicity() && <EthnicityInput ethnicity={data.ethnicity} setEthnicity={ethnicity => setData({ ...data, ethnicity })} />}
+      {recordEmployment && <EmploymentInput employment={data.employment} setEmployment={employment => setData({ ...data, employment })} />}
+      {recordEthnicity && <EthnicityInput ethnicity={data.ethnicity} setEthnicity={ethnicity => setData({ ...data, ethnicity })} />}
       <CloseContactInput closeContact={data.closeContact} setCloseContact={closeContact => setData({ ...data, closeContact })} />
     </animated.div>
   } else if (item === 3) {
     return <animated.div style={props} className="data-entry-page">
-      <Results data={data} useEmployment={recordEmployment()} useEthnicity={recordEthnicity()} />
+      <Results data={data} useEmployment={recordEmployment} useEthnicity={recordEthnicity} />
     </animated.div>
   } else {
     return null;

@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react'
 import { calculateChance, filterData, updatedPrevalence } from './calculateChance.js';
 import "../css/results.scss";
+import { LinkGrid } from '../LinkGrid.jsx';
 
 export const Results = ({ data, useEthnicity, useEmployment }) => {
 
@@ -54,6 +55,7 @@ export const Results = ({ data, useEthnicity, useEmployment }) => {
         people who live in larger households&mdash;and by being in one of these groups you are statistically
         more likely to have a positive result in a PCR test.
       </p>
+      <LinkGrid/>
     </div>
   )
 }
