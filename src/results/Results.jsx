@@ -64,8 +64,9 @@ export const Results = ({ data, useEthnicity, useEmployment }) => {
         <h3>How did we work this out?</h3>
         <p>
           We used data from the <a href="https://www.imperial.ac.uk/medicine/research-and-impact/groups/react-study/">REACT-1 study</a> at
-          Imperial College London to calculate the chance you would test positive for Covid-19
-          based on the information you gave us.
+          Imperial College London and the Office for National
+          Statistics' <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/conditionsanddiseases/bulletins/coronaviruscovid19infectionsurveypilot/24december2020">Coronavirus Infection Survey</a> to
+          calculate the chance you would test positive for Covid-19 based on the information you gave us.
         </p>
         <p>
           This is based on the fact that there is a higher prevalence of Covid-19 amongst certain
