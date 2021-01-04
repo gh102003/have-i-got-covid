@@ -57,6 +57,13 @@ const getPrevalenceGivenVariable = (variable, value) => {
           return 0.0109;
         case "South West":
           return 0.0058;
+        // other nations, rough measurement scaled back ready to be 
+        case "Wales":
+          return 0.0172 / updatedPrevalence * basePrevalence;
+        case "Scotland":
+          return 0.0071 / updatedPrevalence * basePrevalence;
+        case "Northern Ireland":
+          return 0.0055 / updatedPrevalence * basePrevalence;
         default:
           throw new Error("invalid value " + value);
       }

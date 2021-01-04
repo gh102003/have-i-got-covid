@@ -4,8 +4,8 @@ export const GenderInput = ({ gender, setGender }) => {
 
   return (
     <div className="input input-gender">
-      <h3>Enter your gender</h3>
-      <p>Please select the answer you'd give in a medical study.</p>
+      <h3>What's your sex?</h3>
+      <p>Please select the answer you'd give in a medical survey, or skip this question.</p>
 
       <div className="radio-buttons">
 

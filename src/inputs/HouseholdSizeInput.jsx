@@ -5,7 +5,7 @@ export const HouseholdSizeInput = ({ householdSize, setHouseholdSize }) => {
   return (
     <div className="input input-household-size">
       <h3>How many people live in your household?</h3>
-      <p>Include children who stay for part of the week.</p>
+      <p>Include yourself and children who stay for part of the week.</p>
 
       <div className="radio-buttons">
 

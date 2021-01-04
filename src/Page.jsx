@@ -28,8 +28,8 @@ export const Page = ({ item, props, data, setData }) => {
     </animated.div>;
   } else if (item === 1) {
     return <animated.div style={props} className="data-entry-page">
-      <GenderInput gender={data.gender} setGender={gender => setData({ ...data, gender })} />
       <AgeInput age={data.age} setAge={age => setData({ ...data, age })} />
+      <GenderInput gender={data.gender} setGender={gender => setData({ ...data, gender })} />
       <RegionInput region={data.region} setRegion={region => setData({ ...data, region })} />
       <HouseholdSizeInput householdSize={data.householdSize} setHouseholdSize={householdSize => setData({ ...data, householdSize })} />
     </animated.div>

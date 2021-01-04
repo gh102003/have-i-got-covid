@@ -6,7 +6,7 @@ export const CloseContactInput = ({ closeContact, setCloseContact }) => {
     <div className="input input-close-contact">
       <h3>Have you been in close contact with anyone with Covid-19 in the last two weeks?</h3>
 
-      <p>This is anyone you have been within 2 metres of for more than 15 minutes, or anyone you have touched</p>
+      <p>This is anyone you have been within 2 metres of for more than 15 minutes, or anyone you have touched.</p>
 
       <div className="radio-buttons">
 

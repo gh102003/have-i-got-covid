@@ -7,11 +7,27 @@ export const RegionInput = ({ region, setRegion }) => {
       <h3>Where do you live?</h3>
 
       <p>
-        These are the offical regions in England. Unfortunately we don't have enough data to give
-        accurate estimates for Scotland, Wales or Northern Ireland.
+        The majority of our data is for England, so unfortunately estimations for other nations will be less accurate.
       </p>
 
       <div className="radio-buttons">
+
+        <input type="radio" name="region" value="Scotland" id="region-scotland"
+          checked={region === "Scotland"} onChange={() => setRegion("Scotland")}
+        />
+        <label htmlFor="region-scotland">Scotland</label>
+
+        <input type="radio" name="region" value="Northern Ireland" id="region-northern-ireland"
+          checked={region === "Northern Ireland"} onChange={() => setRegion("Northern Ireland")}
+        />
+        <label htmlFor="region-northern-ireland">Northern Ireland</label>
+
+        <input type="radio" name="region" value="Wales" id="region-wales"
+          checked={region === "Wales"} onChange={() => setRegion("Wales")}
+        />
+        <label htmlFor="region-wales">Wales</label>
+        
+        <h4>England</h4>
 
         <input type="radio" name="region" value="South East" id="region-south-east"
           checked={region === "South East"} onChange={() => setRegion("South East")}

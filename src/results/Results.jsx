@@ -9,13 +9,30 @@ export const Results = ({ data, useEthnicity, useEmployment }) => {
     [data, useEthnicity, useEmployment]
   );
 
-  const comparedWithPopulation = useMemo(
+  const nationPrevalence = useMemo(
     () => {
-      if (chance - 0.004 > updatedPrevalence) return "higher than";
-      else if (chance + 0.004 < updatedPrevalence) return "lower than";
+      switch (data.region) {
+        case "Scotland":
+          return { nation: data.region, prevalance: 0.0071 };
+        case "Wales":
+          return { nation: data.region, prevalance: 0.0172 };
+        case "Northern Ireland":
+          return { nation: data.region, prevalance: 0.0055 };
+
+        default: // England
+          return { nation: "England", prevalance: updatedPrevalence };
+      }
+    },
+    [data.region]
+  );
+
+  const comparedWithNation = useMemo(
+    () => {
+      if (chance - 0.005 > nationPrevalence.prevalance) return "higher than";
+      else if (chance + 0.005 < nationPrevalence.prevalance) return "lower than";
       else return "about the same as";
     },
-    [chance],
+    [chance, nationPrevalence],
   )
 
   return (
@@ -23,12 +40,12 @@ export const Results = ({ data, useEthnicity, useEmployment }) => {
       <h2>Your Results Are In!</h2>
       <div className="results-result">
         <p>There is a</p>
-        <p className="result-number">1 in {(1 / chance).toFixed(0)}</p>
+        <p className="result-number">1 in {(1 / chance).toFixed(1 / chance < 10 ? 1 : 0)}</p>
         <p className="result-number result-number-small">({(chance * 100).toFixed(2)}%)</p>
         <p>chance you have Covid-19</p>
       </div>
-      <p>This is {comparedWithPopulation} the average in England,
-        which is <b>1 in {(1 / updatedPrevalence).toFixed(0)}</b> ({(updatedPrevalence * 100).toFixed(2)}%).
+      <p>This is {comparedWithNation} the average in {nationPrevalence.nation},
+        which is <b>1 in {(1 / nationPrevalence.prevalance).toFixed(1 / nationPrevalence.prevalance < 10 ? 1 : 0)}</b> ({(nationPrevalence.prevalance * 100).toFixed(2)}%).
       </p>
 
       <h3>Is this completely correct?</h3>
@@ -57,7 +74,12 @@ export const Results = ({ data, useEthnicity, useEmployment }) => {
         if you have a close contact with Covid-19, we use the higher risk from either your demographics or your
         close contact.
       </p>
-      <LinkGrid/>
+      <p>
+        If you live in Scotland, Wales, or Northern Ireland, we scale your result based on the prevelance in your
+        nation compared with the prevelance in England. However, this may be less accurate as we only have information
+        on risk factors for England.
+      </p>
+      <LinkGrid />
     </div>
   )
 }
