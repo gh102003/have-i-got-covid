@@ -8,7 +8,7 @@ import { HouseholdSizeInput } from './inputs/HouseholdSizeInput.jsx';
 import { EmploymentInput } from './inputs/EmploymentInput.jsx';
 import { CloseContactInput } from './inputs/CloseContactInput.jsx';
 import { Results } from './results/Results.jsx';
-import { LinkGrid } from './LinkGrid.jsx';
+import { Instructions } from './Instructions.jsx';
 
 export const Page = ({ item, props, data, setData }) => {
 
@@ -24,16 +24,7 @@ export const Page = ({ item, props, data, setData }) => {
 
   if (item === 0) {
     return <animated.div style={props} className="data-entry-page">
-      <h2>Welcome!</h2>
-      <p><em>Have I Got Corona?</em> uses data from the Office for National
-      Statistics' <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/conditionsanddiseases/bulletins/coronaviruscovid19infectionsurveypilot/24december2020">Coronavirus Infection Survey</a> and
-      the <a href="https://www.imperial.ac.uk/medicine/research-and-impact/groups/react-study/">REACT-1 study</a> at Imperial College London.</p>
-      <p>All fields are optional: please skip a question if you don't feel comfortable answering it.</p>
-      <p>
-        All the information you enter will be kept on your device, although we use analytics to
-        measure how many people are using this site.
-      </p>
-      <LinkGrid />
+      <Instructions />
     </animated.div>;
   } else if (item === 1) {
     return <animated.div style={props} className="data-entry-page">

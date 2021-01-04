@@ -30,6 +30,7 @@ b {
 }
 
 button, input[type=button], a.button {
+  cursor: pointer;
   padding: 0.5em 0.8em;
   appearance: none;
   border: none;
