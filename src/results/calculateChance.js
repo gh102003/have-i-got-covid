@@ -45,7 +45,7 @@ const getPrevalenceGivenVariable = (variable, value) => {
           return 0.0094;
         case "North West":
           return 0.0102;
-        case "Yorkshire":
+        case "Yorkshire and The Humber":
           return 0.0125;
         case "East Midlands":
           return 0.0119;
@@ -128,19 +128,36 @@ const getPrevalenceGivenVariable = (variable, value) => {
   }
 };
 
+// Route 1: demographics and employment
+const calculateRoute1Chance = variables => {
+  const prevalences = variables
+    .filter(([variable, value]) => variable !== "closeContact")
+    .map(([variable, value]) => getPrevalenceGivenVariable(variable, value));
+  console.log(prevalences);
+
+  const multipliedPrevalences = prevalences.reduce((prev, curr) => prev * curr, 1);
+
+  const chanceRound7 = multipliedPrevalences / (basePrevalence ** (prevalences.length - 1));
+
+  return chanceRound7;
+};
+
+// Route 2: Close contacts
+const calculateRoute2Chance = variables => {
+  const closeContact = variables.filter(([variable, value]) => variable === "closeContact")[0];
+  if (!closeContact) {
+    return basePrevalence;
+  } else {
+    return getPrevalenceGivenVariable("closeContact", closeContact[1]);
+  }
+};
+
 /**
  * 
  * @param {[]} variables must be filtered to remove nulls
  */
 export const calculateChance = variables => {
-  const prevalences = variables.map(([variable, value]) => getPrevalenceGivenVariable(variable, value));
-  console.log(prevalences);
-
-  const multipliedPrevalences = prevalences.reduce((prev, curr) => prev * curr, 1);
-
-  const chanceRound7 =  multipliedPrevalences / (basePrevalence ** (prevalences.length - 1));
-
-  return chanceRound7 * scalingFactor;
+  return Math.max(calculateRoute1Chance(variables), calculateRoute2Chance(variables)) * scalingFactor;
 };
 
 export const filterData = (data, useEthnicity, useEmployment) => {

@@ -53,7 +53,9 @@ export const Results = ({ data, useEthnicity, useEmployment }) => {
         This is based on the fact that there is a higher prevalence of Covid-19 amongst certain
         groups of people&mdash;particularly teenagers, those with an Asian background, healthcare workers and
         people who live in larger households&mdash;and by being in one of these groups you are statistically
-        more likely to have a positive result in a PCR test.
+        more likely to have a positive result in a PCR test. To prevent counting the same risk factors twice,
+        if you have a close contact with Covid-19, we use the higher risk from either your demographics or your
+        close contact.
       </p>
       <LinkGrid/>
     </div>
