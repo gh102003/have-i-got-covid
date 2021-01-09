@@ -141,7 +141,7 @@ const calculateRoute1Chance = variables => {
     .filter(([variable, value]) => variable !== "closeContact")
     .map(([variable, value]) => getPrevalenceGivenVariable(variable, value));
 
-  console.log("route 1 prevalences:", prevalences);
+  // console.log("route 1 prevalences:", prevalences);
 
   const multipliedPrevalences = prevalences.reduce((prev, curr) => prev * curr, 1);
 
@@ -165,7 +165,16 @@ const calculateRoute2Chance = variables => {
  * @param {[]} variables must be filtered to remove nulls
  */
 export const calculateChance = variables => {
-  return Math.max(calculateRoute1Chance(variables), calculateRoute2Chance(variables)) * scalingFactor;
+  const closeContact = variables.filter(([variable, value]) => variable === "closeContact")[0];
+  if (!closeContact) {
+    return calculateRoute1Chance(variables) * scalingFactor;
+  } else if (closeContact[1] === "confirmed" || closeContact[1] === "suspected") {
+    return Math.max(calculateRoute1Chance(variables), calculateRoute2Chance(variables)) * scalingFactor;
+  } else if (closeContact[1] === "no") {
+    return Math.min(calculateRoute1Chance(variables), calculateRoute2Chance(variables)) * scalingFactor;
+  } else {
+    throw new Error("invalid value for closeContact" + closeContact[1]);
+  }
 };
 
 export const filterData = (data, useEthnicity, useEmployment) => {
