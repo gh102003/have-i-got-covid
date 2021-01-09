@@ -81,6 +81,9 @@ export const Results = ({ data, useEthnicity, useEmployment }) => {
           nation compared with the prevelance in England. However, this may be less accurate as we only have information
           on risk factors for England.
         </p>
+        <p>
+          We also have a <a href="https://github.com/gh102003/have-i-got-covid/blob/master/calculating-chances.md">more detailed explanation</a> you can read.
+        </p>
       </div>
       <LinkGrid />
     </div>

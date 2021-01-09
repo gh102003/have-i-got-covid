@@ -1,8 +1,7 @@
 const basePrevalence = 0.0094; // prevalence in whole population in round 7 of REACT-1
 
-export const updatedPrevalence = 0.0118; // newer estimate from ONS for 12/12/2020 to 18/12/2020
-// https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/conditionsanddiseases/bulletins/coronaviruscovid19infectionsurveypilot/24december2020
-
+export const updatedPrevalence = 0.0206; // newer estimate from ONS for 27/12/2020 to 02/01/2021
+// https://www.ons.gov.uk/peoplepopulationandcommunity/healthandsocialcare/conditionsanddiseases/bulletins/coronaviruscovid19infectionsurveypilot/8january2021
 const scalingFactor = updatedPrevalence / basePrevalence; // factor that population prevalence has multiplied by
 
 const getPrevalenceGivenVariable = (variable, value) => {
@@ -57,13 +56,13 @@ const getPrevalenceGivenVariable = (variable, value) => {
           return 0.0109;
         case "South West":
           return 0.0058;
-        // other nations, rough measurement scaled back ready to be 
+        // other nations, rough measurement scaled back ready to be scaled up later
         case "Wales":
-          return 0.0172 / updatedPrevalence * basePrevalence;
+          return 0.0145 / updatedPrevalence * basePrevalence;
         case "Scotland":
-          return 0.0071 / updatedPrevalence * basePrevalence;
+          return 0.0087 / updatedPrevalence * basePrevalence;
         case "Northern Ireland":
-          return 0.0055 / updatedPrevalence * basePrevalence;
+          return 0.0050 / updatedPrevalence * basePrevalence;
         default:
           throw new Error("invalid value " + value);
       }
