@@ -42,14 +42,14 @@ We use two 'routes' to find different two separate probabilities, then choose on
 
 By starting with the Covid-19 prevalence in each group and dividing by the base prevalence for the whole of England, multipliers can be found for the approximate extra risk in each group.
 
-For example, prevalence is 2.04% amongst 13-17 year olds and 0.94% in the whole English population. This means that there is a $\frac{0.0204}{0.0094} \approx 2.17$ risk multiplier for 13-17 year olds.
+For example, prevalence is 2.04% amongst 13-17 year olds and 0.94% in the whole English population. This means that there is a ![$\frac{0.0204}{0.0094} \approx 2.17$](https://latex.codecogs.com/svg.latex?%5Cinline%20%5Cfrac%7B0.0204%7D%7B0.0094%7D%20%5Capprox%202.17) risk multiplier for 13-17 year olds.
 
 The product of the risk multipliers and the base prevalence should provide a rough approximation of the chance a person has Covid-19. These calculations can be simplified to
 
-$$\text{positivity chance} \approx \frac{\prod_{i=1}^n P_i}{(P_{base})^{n-1}}$$
+![$$\text{positivity chance} \approx \frac{\prod_{i=1}^n P_i}{(P_{base})^{n-1}}$$](https://latex.codecogs.com/svg.latex?%5Clarge%20%5Ctext%7Bpositivity%20chance%7D%20%5Capprox%20%5Cfrac%7B%5Cprod_%7Bi%3D1%7D%5En%20P_i%7D%7B%28P_%7Bbase%7D%29%5E%7Bn-1%7D%7D)
 
-where $P_{base}$ is the base prevalence,
-and $P = \{P_1, P_2, P_3, ..., P_n\}$ is the set of the prevalences in the groups to which the person belongs.
+where ![$P_{base}$](https://latex.codecogs.com/svg.latex?%5Cinline%20P_%7Bbase%7D) is the base prevalence,
+and ![$P = \{P_1, P_2, P_3, ..., P_n\}$](https://latex.codecogs.com/svg.latex?%5Cinline%20P%20%3D%20%5C%7BP_1%2C%20P_2%2C%20P_3%2C%20...%2C%20P_n%5C%7D) is the set of the prevalences in the groups to which the person belongs.
 
 However, this method of calculating the positivity chance may not be quite fully accurate, as it makes some potentially incorrect assumptions:
 
